@@ -3,15 +3,13 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-// import CardMedia from "@mui/material/CardMedia";
+import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 
-const ProductCard = () => {
+import ItemCounter from "../reusable/ItemCounter";
+
+const ProductCard = ({ content, src }) => {
   const [count, setCount] = useState(1);
 
   const addItem = () => {
@@ -26,26 +24,24 @@ const ProductCard = () => {
 
   return (
     <Grid item xs={4} sm={2} md={2}>
-      <Card>
-        {/* <CardMedia /> */}
+      <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+        <CardMedia
+          component="img"
+          src={src}
+          alt={content}
+          sx={{ maxWidth: "150px", alignSelf: "center" }}
+        />
         <CardContent>
           <Typography component="h2" variant="h6">
-            Nom
+            {content}
           </Typography>
         </CardContent>
         <CardActions sx={{ display: "flex", flexDirection: "column" }}>
-          <Box
-            mb={0.5}
-            sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-          >
-            <IconButton onClick={removeItem}>
-              <RemoveIcon />
-            </IconButton>
-            <Typography variant="body1">{count}</Typography>
-            <IconButton onClick={addItem}>
-              <AddIcon />
-            </IconButton>
-          </Box>
+          <ItemCounter
+            count={count}
+            addItem={addItem}
+            removeItem={removeItem}
+          />
           <Button variant="contained">ajouter au panier</Button>
         </CardActions>
       </Card>
