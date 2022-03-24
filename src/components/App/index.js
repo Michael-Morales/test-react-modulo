@@ -5,7 +5,11 @@ import Nav from "../Nav";
 import Home from "../Home";
 import Cart from "../Cart";
 
+import useFetchProducts from "../../hooks/useFetchProducts";
+
 const App = () => {
+  useFetchProducts();
+
   return (
     <Container maxWidth="lg">
       <Nav />
