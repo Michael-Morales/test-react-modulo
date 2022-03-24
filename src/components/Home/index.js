@@ -12,15 +12,19 @@ const Home = () => {
   const [{ loading, products }] = useContext(Context);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box>
       <Title content="mes produits" />
 
       {loading && (
-        <CirculatProgress
-          sx={{ alignSelf: "center" }}
-          disableShrink
-          size={100}
-        />
+        <Box
+          mt={20}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <CirculatProgress disableShrink size={100} />
+        </Box>
       )}
       {!loading && products.length > 0 && (
         <Grid
