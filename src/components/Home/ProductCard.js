@@ -6,6 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 import ItemCounter from "../reusable/ItemCounter";
 
@@ -24,18 +25,27 @@ const ProductCard = ({ content, src }) => {
 
   return (
     <Grid item xs={4} sm={2} md={2}>
-      <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-        <CardMedia
-          component="img"
-          src={src}
-          alt={content}
-          sx={{ maxWidth: "150px", alignSelf: "center" }}
-        />
-        <CardContent>
-          <Typography component="h2" variant="h6">
-            {content}
-          </Typography>
-        </CardContent>
+      <Card
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
+        }}
+      >
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <CardMedia
+            component="img"
+            src={src}
+            alt={content}
+            sx={{ maxWidth: "150px", alignSelf: "center" }}
+          />
+          <CardContent>
+            <Typography component="h2" variant="h6">
+              {content}
+            </Typography>
+          </CardContent>
+        </Box>
         <CardActions sx={{ display: "flex", flexDirection: "column" }}>
           <ItemCounter
             count={count}
