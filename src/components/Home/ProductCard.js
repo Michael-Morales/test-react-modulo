@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -24,29 +25,31 @@ const ProductCard = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: "350px" }}>
-      {/* <CardMedia /> */}
-      <CardContent>
-        <Typography component="h2" variant="h6">
-          Nom
-        </Typography>
-      </CardContent>
-      <CardActions sx={{ display: "flex", flexDirection: "column" }}>
-        <Box
-          mb={0.5}
-          sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-        >
-          <IconButton onClick={removeItem}>
-            <RemoveIcon />
-          </IconButton>
-          <Typography variant="body1">{count}</Typography>
-          <IconButton onClick={addItem}>
-            <AddIcon />
-          </IconButton>
-        </Box>
-        <Button variant="contained">ajouter au panier</Button>
-      </CardActions>
-    </Card>
+    <Grid item xs={4} sm={2} md={2}>
+      <Card>
+        {/* <CardMedia /> */}
+        <CardContent>
+          <Typography component="h2" variant="h6">
+            Nom
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ display: "flex", flexDirection: "column" }}>
+          <Box
+            mb={0.5}
+            sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+          >
+            <IconButton onClick={removeItem}>
+              <RemoveIcon />
+            </IconButton>
+            <Typography variant="body1">{count}</Typography>
+            <IconButton onClick={addItem}>
+              <AddIcon />
+            </IconButton>
+          </Box>
+          <Button variant="contained">ajouter au panier</Button>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 };
 
