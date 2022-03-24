@@ -12,8 +12,8 @@ const Nav = () => {
   return (
     <Box sx={{ marginBottom: "1rem" }}>
       <Tabs value={value} onChange={handleChange} centered>
-        <LinkTab label="Accueil" href="/" />
-        <LinkTab label="Panier" href="/cart" />
+        <LinkTab label="Accueil" to="/" />
+        <LinkTab label="Panier" to="/cart" />
       </Tabs>
     </Box>
   );
