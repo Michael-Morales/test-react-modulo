@@ -1,5 +1,15 @@
+import Box from "@mui/material/Box";
+
+import Title from "../reusable/Title";
+import ProductCard from "./ProductCard";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <Box>
+      <Title content="mes produits" />
+      <ProductCard />
+    </Box>
+  );
 };
 
 export default Home;

@@ -10,7 +10,7 @@ const Nav = () => {
   const handleChange = (_, newValue) => setValue(newValue);
 
   return (
-    <Box sx={{ marginBottom: "1rem" }}>
+    <Box>
       <Tabs value={value} onChange={handleChange} centered>
         <LinkTab label="Accueil" to="/" />
         <LinkTab label="Panier" to="/cart" />
