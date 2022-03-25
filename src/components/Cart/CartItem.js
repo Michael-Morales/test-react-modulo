@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Box from "@mui/material/Box";
+import CardActions from "@mui/material/CardActions";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -25,18 +25,27 @@ const CartItem = ({ count, product }) => {
 
   return (
     <Grid item>
-      <Card>
+      <Card sx={{ display: "flex" }}>
         <CardMedia
           component="img"
           src={product.thumbnailUrl}
           alt={product.title}
-          sx={{ maxWidth: "150px" }}
+          sx={{ maxWidth: "150px", alignSelf: "center" }}
         />
-        <Box>
-          <CardContent>
-            <Typography component="h2" variant="h6">
-              {product.title}
-            </Typography>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <Typography component="h2" variant="body1">
+            {product.title}
+          </Typography>
+          <CardActions
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
             <ItemCounter
               count={count}
               removeItem={handleDecrease}
@@ -45,8 +54,8 @@ const CartItem = ({ count, product }) => {
             <IconButton onClick={handleRemove}>
               <ClearIcon />
             </IconButton>
-          </CardContent>
-        </Box>
+          </CardActions>
+        </CardContent>
       </Card>
     </Grid>
   );

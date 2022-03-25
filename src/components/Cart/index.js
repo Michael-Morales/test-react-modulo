@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
 import CartItem from "./CartItem";
@@ -14,11 +15,19 @@ const Cart = () => {
     <Box>
       <Title content={"mon panier"} />
 
-      <Grid container direction="column" alignItems="center" spacing={2} mb={2}>
-        {cart.map((item) => (
-          <CartItem key={item.product.id} {...item} />
-        ))}
-      </Grid>
+      <Container maxWidth="sm">
+        <Grid
+          container
+          direction="column"
+          alignItems="stretch"
+          spacing={{ xs: 2, sm: 4 }}
+          mb={2}
+        >
+          {cart.map((item) => (
+            <CartItem key={item.product.id} {...item} />
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 };
