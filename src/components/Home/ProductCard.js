@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,8 +9,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 import ItemCounter from "../reusable/ItemCounter";
+import { Context } from "../../store";
 
-const ProductCard = ({ content, src }) => {
+import { addToCart, replaceProduct } from "../../actions";
+
+const ProductCard = ({ product }) => {
+  const [{ cart }, dispatch] = useContext(Context);
   const [count, setCount] = useState(1);
 
   const addItem = () => {
@@ -21,6 +25,14 @@ const ProductCard = ({ content, src }) => {
     if (count === 1) return;
 
     setCount(count - 1);
+  };
+
+  const handleClick = () => {
+    const existingItem = cart.find((item) => item.product.id === product.id);
+
+    if (existingItem) return dispatch(replaceProduct(product.id, count));
+
+    dispatch(addToCart(product, count));
   };
 
   return (
@@ -36,13 +48,13 @@ const ProductCard = ({ content, src }) => {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardMedia
             component="img"
-            src={src}
-            alt={content}
+            src={product.thumbnailUrl}
+            alt={product.title}
             sx={{ maxWidth: "150px", alignSelf: "center" }}
           />
           <CardContent>
             <Typography component="h2" variant="h6">
-              {content}
+              {product.title}
             </Typography>
           </CardContent>
         </Box>
@@ -52,7 +64,9 @@ const ProductCard = ({ content, src }) => {
             addItem={addItem}
             removeItem={removeItem}
           />
-          <Button variant="contained">ajouter au panier</Button>
+          <Button variant="contained" onClick={handleClick}>
+            ajouter au panier
+          </Button>
         </CardActions>
       </Card>
     </Grid>

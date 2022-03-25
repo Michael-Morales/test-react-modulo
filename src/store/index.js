@@ -5,6 +5,7 @@ import reducer from "../reducer";
 const initialState = {
   loading: false,
   products: [],
+  cart: [],
 };
 
 const Store = ({ children }) => {

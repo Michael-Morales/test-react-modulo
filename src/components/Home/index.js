@@ -33,8 +33,8 @@ const Home = () => {
           columns={{ xs: 4, sm: 4, md: 6 }}
           mb={2}
         >
-          {products.map(({ id, title, thumbnailUrl }) => (
-            <ProductCard key={id} content={title} src={thumbnailUrl} />
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </Grid>
       )}
