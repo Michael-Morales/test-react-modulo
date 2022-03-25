@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 import ItemCounter from "../reusable/ItemCounter";
+
 import { Context } from "../../store";
 
 import { addToCart, replaceProduct } from "../../actions";
