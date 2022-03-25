@@ -22,3 +22,21 @@ export const replaceProduct = (id, count) => ({
   id,
   count,
 });
+
+export const INCREASE_COUNT = "INCREASE_COUNT";
+export const increaseCount = (id) => ({
+  type: INCREASE_COUNT,
+  id,
+});
+
+export const DECREASE_COUNT = "DECREASE_COUNT";
+export const decreaseCount = (id) => ({
+  type: DECREASE_COUNT,
+  id,
+});
+
+export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+export const removeProduct = (id) => ({
+  type: REMOVE_PRODUCT,
+  id,
+});
