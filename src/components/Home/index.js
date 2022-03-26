@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import CirculatProgress from "@mui/material/CircularProgress";
 
 import Title from "../reusable/Title";
@@ -37,6 +38,13 @@ const Home = () => {
             <ProductCard key={product.id} product={product} />
           ))}
         </Grid>
+      )}
+      {!loading && products.length === 0 && (
+        <Box mt={20}>
+          <Typography component="h2" variant="h5" align="center">
+            Aucun produit existant.
+          </Typography>
+        </Box>
       )}
     </Box>
   );
